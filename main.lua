@@ -6,7 +6,7 @@ scanAlgorithm.scanMethod = "CHUNK" -- change to BRUTE_FORCE or CHUNK TO CHANGE M
 
 local hom_scanner = {
   name = "Hom Scanner",
-  version = "0.4.2",
+  version = "0.4.3",
   author = "Nyella",
   desc = "Scans the region for total amount of friendly or hostile players"
 }
@@ -54,7 +54,9 @@ local function OnUpdate(dt)
     -- Set Friend Labels
     for _, entry in ipairs(scanAlgorithm.friendGuild) do
         if entry.value ~= 0 and friendCount < 18 then
-          masterScan.scannerWindow.friendlyGuild[friendCount]:SetText(entry.key .. ": " .. entry.value)
+          entryValue = entry.key
+          combinedString = entryValue:sub(1,16) .. ": " .. entry.value
+          masterScan.scannerWindow.friendlyGuild[friendCount]:SetText(combinedString)
           friendCount = friendCount + 1
         end
     end
@@ -62,7 +64,9 @@ local function OnUpdate(dt)
     -- Set Hostile Labels
     for _, entry in ipairs(scanAlgorithm.hostileGuild) do
         if entry.value ~= 0 and hostileCount < 18 then
-          masterScan.scannerWindow.hostileGuild[hostileCount]:SetText(entry.key .. ": " .. entry.value)
+          entryValue = entry.key
+          combinedString = entryValue:sub(1,14) .. ": " .. entry.value
+          masterScan.scannerWindow.hostileGuild[hostileCount]:SetText(combinedString)
           hostileCount = hostileCount + 1
         end
     end
@@ -82,6 +86,7 @@ end
 local function OnLoad()
   api.Log:Info("HOM Scanner " .. hom_scanner.version .. " loaded")
   masterScan = require("hom_scanner/scannerView")
+  masterScan.scannerWindow.mainWindowLabel:SetText("Hom Scanner v" .. hom_scanner.version)
   masterScan.scannerWindow:Show(true)
 
   api.On("UPDATE", OnUpdate)

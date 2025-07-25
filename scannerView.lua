@@ -2,7 +2,7 @@
 -- Tenks dude
 
 scannerWindow = api.Interface:CreateEmptyWindow("scannerWindow", "UIParent")
-scannerWindow:SetExtent(320,450)
+scannerWindow:SetExtent(340,450)
 scannerWindow:AddAnchor("RIGHT", "UIParent", 0, -100)
 scannerWindow.child = {}
 scannerWindow.friendlyGuild = {}
@@ -51,7 +51,7 @@ local mainWindowLabel = api.Interface:CreateWidget("label", "mainWindowText", mo
 mainWindowLabel:AddAnchor("TOPLEFT", moveWnd, 0, 3)
 mainWindowLabel:SetExtent(100, 20)
 ApplyTextColor(mainWindowLabel, FONT_COLOR.WHITE)
-mainWindowLabel:SetText("Hom Scanner v0.4.2")
+scannerWindow.mainWindowLabel = mainWindowLabel
 
 
 --- Minimized view & maximize button
@@ -214,11 +214,11 @@ hostileScan.style:SetColor(1, 1, 1, 1)
 hostileScan.style:SetAlign(ALIGN.LEFT)
 ApplyTextColor(hostileScan, FONT_COLOR.RED)
 
--- Draw X Seperators (320,450)
+-- Draw X Seperators (340,450)
 scannerWindow.child['seperatorX'] = W_BAR.CreateExpBar("someTest", scannerWindow)
 local someTest = scannerWindow.child['seperatorX']
 someTest:AddAnchor("TOPLEFT", 5, 80)
-someTest:SetExtent(305, 2)
+someTest:SetExtent(325, 2)
 
 -- Draw Y Seperators
 scannerWindow.child['seperatorY'] = W_BAR.CreateExpBar("someTest2", scannerWindow)
@@ -226,7 +226,7 @@ local someTest = scannerWindow.child['seperatorY']
 someTest:AddAnchor("TOPLEFT", 160, 81)
 someTest:SetExtent(2, 369)
 
-
+-- Populate 17 widgets for left and right side 
 for i = 1, 17 do
 	local friendId = "friend" .. i
 	local hostileId = "friend" .. i
