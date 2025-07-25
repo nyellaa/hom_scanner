@@ -1,5 +1,6 @@
 # What is HOM Scanner
-HOM scanner is an archeage classic addon that scans all players within your range. It will output the total number of friendly scanned guilds and hostile guilds onto a nice table for you. Thats really all it does. Good to see if there is an imbalance while PvPing.
+HOM scanner is an archeage classic addon that scans all players within your range. It will output the total number of friendly scanned guilds and hostile guilds onto a nice table for you. 
+It is good to see if there is an imbalance while PvPing.
 <img width="164" height="230" alt="image" src="https://github.com/user-attachments/assets/fc11eede-25d8-43f7-aae7-fc830a5d8e19" />
 
 
